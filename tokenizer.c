@@ -1,8 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-#include <strings.h>
+#include "main.h"
 
 void tokeniser(char *string, char **sarray)
 {

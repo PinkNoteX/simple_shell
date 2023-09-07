@@ -7,6 +7,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <ctype.h>
+#include <strings.h>
 
 void tokeniser(char *string, char **sarray);
 
