@@ -13,8 +13,6 @@ int main(void)
     pid_t parent_pid;
 
     my_pid = getpid();
-    while (my_pid != NULL)
-	    my_pid = getpid();
 
     printf("%u\n", my_pid);
     parent_pid = getppid();
