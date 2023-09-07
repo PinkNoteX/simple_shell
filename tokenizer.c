@@ -8,8 +8,9 @@ void tokeniser(char *string, char **sarray)
 {
     int i = 0, j = 0, n = 0;
     char word[20];
-    char *s[30];
-
+    char *s[15];
+    int k = 0;
+	int r = 0;
     while (string[i] != '\0')
     {
         if (string[i] == ' ')
@@ -17,6 +18,11 @@ void tokeniser(char *string, char **sarray)
                 word[j] = '\0';
 
                 s[n] = malloc(sizeof(word));
+		if (s[n] == NULL) 
+            {
+                printf("Error: Out of memory\n");
+                exit(1);
+            }
                 strcpy(s[n], word);
 
                 j = 0;
@@ -30,27 +36,19 @@ void tokeniser(char *string, char **sarray)
         i++;
     }
         s[n] = malloc(sizeof(word));
+	 if (s[n] == NULL) 
+    {
+        printf("Error: Out of memory\n");
+        exit(1);
+    }
         strcpy(s[n], word);
-        
-        for (int i = 0; i < 30; i++)
+        for (r = n + 1; r < 15; r++)
         {
-          sarray[i] = s[i];
+          s[r] = '\0';
+        } 
+        for (k = 0; k < 15; k++)
+        {
+          sarray[k] = s[k];
         }
         
 }
-int main(void)
-{
-  char token[] = "this is a big string";
-  char *sarray[30];
-  tokeniser(token,sarray);
-  for(int i = 0; i < 30; i++)
-  {
-    printf("%s\n", sarray[i]);
-  }
-
-  for (int i = 0; i < 30; i++)
-  {
-	  free(sarray[i]);
-  }
-}
-
