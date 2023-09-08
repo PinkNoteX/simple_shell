@@ -14,13 +14,7 @@ void tokeniser(char *string, char **sarray)
                 word[j] = '\0';
 
                 s[n] = malloc(sizeof(word));
-		if (s[n] == NULL) 
-            {
-                printf("Error: Out of memory\n");
-                exit(1);
-            }
                 strcpy(s[n], word);
-
                 j = 0;
                 n++;
                 memset(word, 0, sizeof(word));
@@ -32,11 +26,6 @@ void tokeniser(char *string, char **sarray)
         i++;
     }
         s[n] = malloc(sizeof(word));
-	 if (s[n] == NULL) 
-    {
-        printf("Error: Out of memory\n");
-        exit(1);
-    }
         strcpy(s[n], word);
         for (r = n + 1; r < 15; r++)
         {
@@ -46,5 +35,4 @@ void tokeniser(char *string, char **sarray)
         {
           sarray[k] = s[k];
         }
-        
 }
