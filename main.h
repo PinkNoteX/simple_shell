@@ -12,6 +12,6 @@
 
 void tokeniser(char *string, char **sarray);
 void free_array(char **array, int arraysize);
-
+char *userin();
 
 #endif
