@@ -3,7 +3,7 @@
 int main(void)
 {
         char **av, *userinput, *cmd = ":) ",
-	     **sarray = malloc(15 * sizeof(char *));
+	     **sarray = malloc(25 * sizeof(char *));
         int i = 0,  arraysize = 0;
 
         while (1)
@@ -26,7 +26,7 @@ int main(void)
         {
         printf("%s\n", av[i]);
         }}
-        free_array(sarray, 15);
+        free_array(sarray, 25);
         free_array(av, arraysize);
         free(userinput);
         return (0);
