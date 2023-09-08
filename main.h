@@ -11,7 +11,7 @@
 #include <strings.h>
 
 void tokeniser(char *string, char **sarray);
-
+void free_array(char **array, int arraysize);
 
 
 #endif

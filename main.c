@@ -36,20 +36,13 @@ int main(void)
         }
         av[i] = sarray[i];
 	/*Start Execution*/
-	for (i = 0; i < arraysize - 1; i++){
+	for (i = 0; i < arraysize - 1; i++)
+	{
 	printf("%s\n",av[i]);
 	}
         }
-	for (i = 0; i < 15; i++)
-        {
-        free(sarray[i]);
-        }
-	for (i = 0; i < arraysize; i++)
-        {
-        free(av[i]);
-        }
-	free(sarray);
-	free(av);
+	free_array(sarray, 15);
+	free_array(av, arraysize);
 	free(userinput);
 	return (0);
 }
