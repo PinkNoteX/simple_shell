@@ -2,7 +2,8 @@
 
 int main(void)
 {
-        char **av, *userinput, *cmd = ":) ", **sarray = malloc(15 * sizeof(char *));
+        char **av, *userinput, *cmd = ":) ",
+	     **sarray = malloc(15 * sizeof(char *));
         int i = 0,  arraysize = 0;
 
         while (1)
