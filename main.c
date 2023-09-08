@@ -29,7 +29,7 @@ int main(void)
 	av = malloc(sizeof(char *) * arraysize);
 	while (sarray[i] != NULL)
 	{
-		av[i] = sarray[i]
+		av[i] = sarray[i];
 			i++; }
 	av[i] = sarray[i];
 	/*Start Execution*/
