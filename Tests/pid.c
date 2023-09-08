@@ -10,12 +10,11 @@
 int main(void)
 {
     pid_t my_pid;
-    pid_t parent_pid;
+    pid_t parent;
 
     my_pid = getpid();
-
-    printf("%u\n", my_pid);
-    parent_pid = getppid();
-    printf("%u\n", parent_pid);
+	parent = getppid();
+    printf("%u\n", parent);
+    printf("%u\n",my_pid);
     return (0);
 }

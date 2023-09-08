@@ -1,13 +1,15 @@
 #include "main.h"
 
 int main(void)
-{
+{	
+	char **av;
 	char *cmd = ":) ";
 	char *userinput;
 	size_t n = 0;
 	ssize_t nchars;
-	char **sarray = malloc(15 * sizeof(char *));
 	int i = 0;
+	int arraysize = 0;
+	char **sarray = malloc(15 * sizeof(char *));
 	  
 	while (1)
 	{
@@ -21,23 +23,33 @@ int main(void)
 			return (-1);
 		}
 	tokeniser(userinput,sarray);
-	for (i = 0; i < 15; i++)
+	for(i = 0; sarray[i] != NULL; i++)
         {
-        if(sarray[i] != NULL)
-    	{
-        printf("%s\n", sarray[i]);
-    	}
-    	else
-    	{
-        break;
-    	}
+        arraysize = i + 2;
         }
+	i = 0;
+	av = malloc(sizeof(char *) * arraysize);
+	while(sarray[i] != NULL)
+        {
+                av[i] = sarray[i];
+                i++;
+        }
+        av[i] = sarray[i];
+	/*Start Execution*/
+	for (i = 0; i < arraysize - 1; i++){
+	printf("%s\n",av[i]);
 	}
+        }
 	for (i = 0; i < 15; i++)
         {
         free(sarray[i]);
         }
+	for (i = 0; i < arraysize; i++)
+        {
+        free(av[i]);
+        }
 	free(sarray);
+	free(av);
 	free(userinput);
 	return (0);
 }
