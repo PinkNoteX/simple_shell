@@ -28,7 +28,13 @@ void tokeniser(char *string, char **sarray)
 	i++;
 }
 	s[n] = malloc(sizeof(word));
-	strcpy(s[n], word);
+	 if (n == 0)
+        {
+            word[j] = '\0';
+            strcpy(s[n], word);}
+        else
+        {
+            strcpy(s[n], word);}
 	for (r = n + 1; r < 25; r++)
 {
 	s[r] = '\0';

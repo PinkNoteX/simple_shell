@@ -4,7 +4,7 @@ int main(void)
 {
 	char **av, *userinput, *cmd = ":) ",
 	     **sarray = malloc(25 * sizeof(char *));
-	int i = 0,  arraysize = 0;
+	int i = 0,  arraysize = 0, counter = 0;
 
 	while (1)
 	{
@@ -22,10 +22,10 @@ int main(void)
 			i++; }
 		av[i] = sarray[i];
 		/*Start Execution*/
-		for (i = 0; i < arraysize - 1; i++)
-		{
-			printf("%s\n", av[i]);
-		}}
+		cmdexc(av);
+        counter++;
+        }
+                
 	free_array(sarray, 25);
 	free_array(av, arraysize);
 	free(userinput);

@@ -12,5 +12,10 @@ char *userin(int ret)
 		free(userin_s);
 		exit(0);
 	}
+	if ((userin_s)[nchars - 1] == '\n')
+        {
+      (userin_s)[nchars - 1] = '\0';
+        --nchars;
+        }
 	return (userin_s);
 }
