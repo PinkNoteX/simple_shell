@@ -5,6 +5,7 @@ int main(void)
 	char **av, *userinput, *cmd = ":) ",
 	     **sarray = malloc(25 * sizeof(char *));
 	int i = 0,  arraysize = 0, counter = 0;
+	pid_t pid;
 
 	while (1)
 	{
@@ -21,8 +22,13 @@ int main(void)
 			av[i] = sarray[i];
 			i++; }
 		av[i] = sarray[i];
-		/*Start Execution*/
+	
+	/*Start Execution*/
+	pid = fork();
+	if (pid == 0)
 		cmdexc(av);
+	else
+		wait(NULL);
         counter++;
         }
                 
