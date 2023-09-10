@@ -2,15 +2,22 @@
 
 void cmdexc(char **av)
 {
-    char *cmdd = NULL;
-    
+    char *cmdd = NULL, buffer[32], PATH[32] = "/bin/";
+    int i;
+
     if(av)
+        cmdd = av[0];
+    for (i = 0; i < strlen(cmdd) + 1; i++)
     {
-        cmdd= av[0];
+        buffer[i] = cmdd[i];
     }
-    if (execvp(cmdd,av) == -1)
+    if(buffer[0] != '/')
+        strcat(PATH, buffer);
+    else{
+        strcpy(PATH, buffer);
+    }
+    if (execve(PATH, av, NULL) == -1)
     {
      perror(":( Error");
-    
     }
 }
