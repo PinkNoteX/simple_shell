@@ -14,5 +14,9 @@
 void tokeniser(char *string, char **sarray);
 void free_array(char **array, int arraysize);
 char *userin();
-void cmdexc(char **argv);
+void cmdexc(char **av, char *actcmdd);
+void Path_Tokenizer(char *string2, char **sarray2);
+char *cmdchecker(char **array, char *cmd);
 #endif
+
+

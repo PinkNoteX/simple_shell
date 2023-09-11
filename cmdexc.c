@@ -1,6 +1,6 @@
 #include "main.h"
 
-void cmdexc(char **av)
+void cmdexc(char **av, char *actcmdd)
 {
     char *cmdd = NULL, buffer[32], PATH[32] = "/bin/";
     int i;
@@ -12,7 +12,7 @@ void cmdexc(char **av)
         buffer[i] = cmdd[i];
     }
     if(buffer[0] != '/')
-        strcat(PATH, buffer);
+        strcpy(PATH, actcmdd);
     else{
         strcpy(PATH, buffer);
     }
