@@ -15,7 +15,8 @@ int main(int ac, char **av, char **env)
         {
             if(isatty(STDIN_FILENO) == 0)
              piped = true;
-                write(STDOUT_FILENO, cmd, 3);
+             else{
+                write(STDOUT_FILENO, cmd, 3);}
                 userinput = userin();
 if(strcmp(userinput, "$()^($)!$($)$!") != 0){
                 tokeniser(userinput, sarray);
