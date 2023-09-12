@@ -11,6 +11,7 @@
 #include <ctype.h>
 #include <strings.h>
 #include <errno.h>
+#include <stdbool.h>
 
 void tokeniser(char *string, char **sarray);
 void free_array(char **array, int arraysize);

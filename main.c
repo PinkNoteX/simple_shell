@@ -5,15 +5,19 @@ int main(int ac, char **av, char **env)
         char *userinput, *Path_string, *cmd = ":) ",
              **sarray = malloc(25 * sizeof(char *)), *end,
              **Paths = malloc(30 * sizeof(char *)), *actualcommand;
-        int i = 0,  arraysize = 0, counter = 0, validpath = 0;
-        long int exitvalue = 0;
+        int i = 0,  arraysize = 0, counter = 0, exitvalue = 0;
         pid_t pid;
+        bool piped = false;
+        (void)ac;
 
 
-        while (1)
+        while (1 && !piped)
         {
-                printf("%s", cmd);
+            if(isatty(STDIN_FILENO) == 0)
+             piped = true;
+                write(STDOUT_FILENO, cmd, 3);
                 userinput = userin();
+if(strcmp(userinput, "$()^($)!$($)$!") != 0){
                 tokeniser(userinput, sarray);
                 for (i = 0; sarray[i] != NULL; i++)
                 {
@@ -28,29 +32,36 @@ int main(int ac, char **av, char **env)
         Path_string = getenv("PATH");
         Path_Tokenizer(Path_string,Paths);
         actualcommand = cmdchecker(Paths,av[0]);
+        
         if(strcmp(av[0], "exit") == 0)
         {
             if(av[1] != NULL)
             {
             exitvalue = strtol(av[1], &end, 10);;
+
             if (end == av[1] || *end != '\0' || errno == ERANGE)
-              printf(":( Error: Enter a value after exit\n");
+            {
+                perror(":( Error:\n");
+            }
             else
-            exit (exitvalue);}
+            exit (exitvalue);
+            }
             else
-            exit (0);}
+            exit (0);
+        }
         else
         {
         pid = fork();
         if (pid == 0)
+        {
         chcmd(av,actualcommand,env);
+        }
         wait(NULL);
-        free(actualcommand);
-        counter++;}}
+        counter++;
+        }}}
         free_array(Paths, 30);
-        free_array(sarray, 25);
-        free_array(av, arraysize);
         free(userinput);
-        free(Path_string);
+        free_array(sarray, 25);       
+        
         return (0);
 }

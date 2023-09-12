@@ -1,21 +1,34 @@
 #include "main.h"
-char *userin(int ret)
+char *userin()
 {
-	char *userin_s;
-	size_t n = 0;
-	ssize_t nchars;
+        char *userin_s;
+        size_t n = 0;
+        ssize_t nchars;
 
-	nchars = getline(&userin_s, &n, stdin);
-	if (nchars == -1)
-	{
-		printf("\n");
-		free(userin_s);
-		exit(0);
-	}
-	if ((userin_s)[nchars - 1] == '\n')
+        nchars = getline(&userin_s, &n, stdin);
+        if (nchars == -1)
         {
-      (userin_s)[nchars - 1] = '\0';
+                  if (feof(stdin)) 
+        {
+            clearerr(stdin);
+            write(STDOUT_FILENO,"\n",1);
+            exit (0);
+        }
+        else{
+                free(userin_s);
+                write(STDOUT_FILENO,"\n",1);
+                exit (0);
+        }}
+        if ((userin_s)[nchars - 1] == '\n')
+        {
+        (userin_s)[nchars - 1] = '\0';
         --nchars;
         }
-	return (userin_s);
+        if (nchars == 0)
+        {
+                strcpy(userin_s,"$()^($)!$($)$!");
+                return(userin_s);
+        }
+        else
+        return (userin_s);
 }
