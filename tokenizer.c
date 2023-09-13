@@ -11,7 +11,7 @@ void tokeniser(char *string, char **sarray)
         while (string[i] != '\0')
 {
 
-        if (string[i] == ' ')
+        if (string[i] == ' ' && string[i + 1] != ' ')
 {
         word[j] = '\0';
 
