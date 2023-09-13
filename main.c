@@ -18,7 +18,8 @@ int main(int ac, char **av, char **env)
              else{
                 write(STDOUT_FILENO, cmd, 3);}
                 userinput = userin();
-if(strcmp(userinput, "$()^($)!$($)$!") != 0){
+        if(strcmp(userinput, "$()^($)!$($)$!") != 0 
+        && strcmp(userinput, " ") != 0){
                 tokeniser(userinput, sarray);
                 for (i = 0; sarray[i] != NULL; i++)
                 {
@@ -32,8 +33,8 @@ if(strcmp(userinput, "$()^($)!$($)$!") != 0){
                 av[i] = sarray[i];
         Path_string = getenv("PATH");
         Path_Tokenizer(Path_string,Paths);
+        av = commentche(av);
         actualcommand = cmdchecker(Paths,av[0]);
-        
         if(strcmp(av[0], "exit") == 0)
         {
             if(av[1] != NULL)

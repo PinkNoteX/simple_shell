@@ -20,4 +20,7 @@ void cmdexc(char **av, char *actcmdd);
 void Path_Tokenizer(char *string2, char **sarray2);
 char *cmdchecker(char **array, char *cmd);
 void chcmd(char **av, char *actcmdd,char **env);
+char **commentche(char **av);
 #endif
+
+

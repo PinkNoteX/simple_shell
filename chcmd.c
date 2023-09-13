@@ -15,6 +15,7 @@
         write(STDOUT_FILENO,"\n",1);
         i++;
     }
+    exit (0);
     }
     else 
     {

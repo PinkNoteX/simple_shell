@@ -2,8 +2,8 @@
 char *cmdchecker(char **array, char *cmd)
 {
         int i;
-        struct stat buf;      
-        char cmdarray[150]; 
+        struct stat buf;
+        char cmdarray[150];
         char arraystore[150];
         char *actualcmd = malloc(150 * sizeof(char));
 
@@ -19,5 +19,5 @@ char *cmdchecker(char **array, char *cmd)
                }
         }
         free(actualcmd);
-        return (cmd);        
+        return (cmd);
 }
