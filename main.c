@@ -31,10 +31,11 @@ int main(int ac, char **av, char **env)
                         av[i] = sarray[i];
                         i++; }
                 av[i] = sarray[i];
+        echocheck(av);
         Path_string = getenv("PATH");
         Path_Tokenizer(Path_string,Paths);
         av = commentche(av);
-        actualcommand = cmdchecker(Paths,av[0]);
+        
         if(strcmp(av[0], "exit") == 0)
         {
             if(av[1] != NULL)
@@ -49,13 +50,14 @@ int main(int ac, char **av, char **env)
             exit (exitvalue);
             }
             else
-            exit (0);
+            exit (errno);
         }
         else
         {
         pid = fork();
         if (pid == 0)
         {
+        actualcommand = cmdchecker(Paths,av[0]);
         chcmd(av,actualcommand,env);
         }
         wait(NULL);

@@ -3,7 +3,7 @@
 void tokeniser(char *string, char **sarray)
 {
         int i = 0, j = 0, n = 0;
-        char word[50];
+        char word[10000];
         char *s[25];
         int k = 0;
         int r = 0;

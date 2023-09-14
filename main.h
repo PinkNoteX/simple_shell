@@ -16,11 +16,11 @@
 void tokeniser(char *string, char **sarray);
 void free_array(char **array, int arraysize);
 char *userin();
-void cmdexc(char **av, char *actcmdd);
+void cmdexc(char **av, char *actcmdd, char **env);
 void Path_Tokenizer(char *string2, char **sarray2);
 char *cmdchecker(char **array, char *cmd);
 void chcmd(char **av, char *actcmdd,char **env);
 char **commentche(char **av);
+void echocheck(char **av);
+void removeChar(char *str, char garbage1, char garbage2);
 #endif
-
-

@@ -12,12 +12,12 @@ char *userin()
         {
             clearerr(stdin);
             write(STDOUT_FILENO,"\n",1);
-            exit (0);
+            exit (errno);
         }
         else{
                 free(userin_s);
                 write(STDOUT_FILENO,"\n",1);
-                exit (0);
+                exit (errno);
         }}
         if ((userin_s)[nchars - 1] == '\n')
         {

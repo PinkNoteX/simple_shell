@@ -1,6 +1,6 @@
 #include "main.h"
 
-void cmdexc(char **av, char *actcmdd)
+void cmdexc(char **av, char *actcmdd, char ** env)
 {
     char *cmdd = NULL, buffer[32], PATH[32] = "/bin/";
     int i, x;
@@ -19,9 +19,9 @@ void cmdexc(char **av, char *actcmdd)
         strcpy(PATH, buffer);
     }
     if(buffer[0] != '\0'){
-    if (execve(PATH, av, NULL) == -1)
+    if (execve(PATH, av, env) == -1)
     {
      perror(":( Error");
-     exit (0);
+     exit (errno);
     }}
 }

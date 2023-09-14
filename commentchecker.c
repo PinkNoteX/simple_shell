@@ -15,12 +15,18 @@ while (av[i] != NULL)
 if(comment == true)
 {
     r = comment_int;
+    if(r == 0){
+        strcpy(av[0], " ");
+        r++;
+    }
+    else{
     while (r < i + 1)
     {
         av[r] = '\0';
         r++;
     }
-    return (av);
+    return (av);}
+    
 }
 return (av);
 }

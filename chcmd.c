@@ -17,8 +17,12 @@
     }
     exit (0);
     }
+    else if (strcmp(command, " ") == 0)
+    {
+        exit (errno);
+    }
     else 
     {
-        cmdexc(av,actcmdd);
+        cmdexc(av,actcmdd,env);
     }}
  }
