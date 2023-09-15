@@ -41,7 +41,7 @@ int main(int ac, char **av, char **env)
             exit (exitvalue);
             }
             else
-            exit (errno);
+            exit (0);
         }
         else
         {

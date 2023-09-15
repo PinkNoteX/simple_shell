@@ -23,4 +23,5 @@ char **commentche(char **av);
 void echocheck(char **av);
 void removeChar(char *str, char garbage1, char garbage2);
 char **spilt(char *string, char *sep, int *sep_count);
+void removefirstspace(char *str);
 #endif

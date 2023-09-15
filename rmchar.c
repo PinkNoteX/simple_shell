@@ -9,3 +9,15 @@ void removeChar(char *str, char garbage1, char garbage2)
     }
     *dst = '\0';
 }
+void removefirstspace(char *str)
+{
+    char *src, *dst;
+    src = dst = str;
+    src++;
+    while (*src != '\0') {
+        *dst = *src;
+         dst++;
+         src++;
+    }
+    *dst = '\0';
+}
