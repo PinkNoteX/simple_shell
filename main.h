@@ -13,7 +13,6 @@
 #include <errno.h>
 #include <stdbool.h>
 
-void tokeniser(char *string, char **sarray);
 void free_array(char **array, int arraysize);
 char *userin();
 void cmdexc(char **av, char *actcmdd, char **env);
@@ -23,4 +22,5 @@ void chcmd(char **av, char *actcmdd,char **env);
 char **commentche(char **av);
 void echocheck(char **av);
 void removeChar(char *str, char garbage1, char garbage2);
+char **spilt(char *string, char *sep, int *sep_count);
 #endif

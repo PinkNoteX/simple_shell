@@ -10,14 +10,22 @@ char *userin()
         {
                   if (feof(stdin)) 
         {
+                if(isatty(STDIN_FILENO) == 0){
+                free(userin_s);
+                exit (0);    
+                }
             clearerr(stdin);
             write(STDOUT_FILENO,"\n",1);
-            exit (errno);
+            exit (0);
         }
         else{
+                if(isatty(STDIN_FILENO) == 0){
+                free(userin_s);
+                exit (0);    
+                }
                 free(userin_s);
                 write(STDOUT_FILENO,"\n",1);
-                exit (errno);
+                exit (0);
         }}
         if ((userin_s)[nchars - 1] == '\n')
         {

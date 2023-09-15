@@ -1,49 +1,5 @@
 #include "main.h"
 
-void tokeniser(char *string, char **sarray)
-{
-        int i = 0, j = 0, n = 0;
-        char word[10000];
-        char *s[25];
-        int k = 0;
-        int r = 0;
-
-        while (string[i] != '\0')
-{
-
-        if (string[i] == ' ' && string[i + 1] != ' ')
-{
-        word[j] = '\0';
-
-        s[n] = malloc(sizeof(word));
-        strcpy(s[n], word);
-                j = 0;
-                n++;
-                memset(word, 0, sizeof(word));
-}
-        else
-{
-                word[j++] = string[i];
-}
-        i++;
-}
-        s[n] = malloc(sizeof(word));
-         if (n == 0)
-        {
-            word[j] = '\0';
-            strcpy(s[n], word);}
-        else
-        {
-            strcpy(s[n], word);}
-        for (r = n + 1; r < 25; r++)
-{
-        s[r] = '\0';
-}
-        for (k = 0; k < 25; k++)
-{
-        sarray[k] = s[k];
-}
-}
 void Path_Tokenizer(char *string2, char **sarray2)
 {
         int i2 = 0, j2 = 0, n2 = 0;
@@ -91,3 +47,55 @@ void Path_Tokenizer(char *string2, char **sarray2)
         sarray2[k2] = s2[k2];
 }
 }
+char **spilt(char *string, char *sep, int *sep_count)
+{
+int len = strlen(string);
+int ind = 0;
+*sep_count = 0;
+char* seperators = malloc(strlen(sep) + 1);
+strcpy(seperators, sep);
+int i = 0;
+char **strings = malloc(100 * sizeof(char *));
+i = 0;
+char buf[17999];
+int n = 0;
+while (i < len)
+{
+    while (i < len)
+    {
+
+        if (strchr(seperators,string[i]) == NULL)
+            break;
+        i++;
+    }
+
+   int l = 0;
+   while (i < len)
+   {
+    if (strchr(seperators,string[i]) != NULL)
+    break;
+    buf[l] = string[i];
+    i++;
+    l++;
+   } 
+   if(l > 0)
+   {
+   buf[l] = '\0';
+   int allocation_size = sizeof(char) * (strlen(buf) + 1);
+   strings[n] = malloc(allocation_size);
+   strcpy(strings[n], buf);
+   if(n != 0)
+    if(strcmp(strings[n-1],"echo") == 0 || 
+    strcmp(strings[n-1],"/bin/echo") == 0)
+    {
+    seperators = malloc(sizeof(char) * 2);
+    strcpy(seperators, "");
+    ind = n;
+    }
+   n++;
+   }
+}
+strings[n] = NULL;
+return (strings);
+}
+
