@@ -77,7 +77,7 @@ while (i < len)
     buf[l] = string[i];
     i++;
     l++;
-   } 
+   }
    if(l > 0)
    {
    buf[l] = '\0';
@@ -85,7 +85,7 @@ while (i < len)
    strings[n] = malloc(allocation_size);
    strcpy(strings[n], buf);
    if(n != 0)
-    if(strcmp(strings[n-1],"echo") == 0 || 
+    if(strcmp(strings[n-1],"echo") == 0 ||
     strcmp(strings[n-1],"/bin/echo") == 0)
     {
     seperators = malloc(sizeof(char) * 2);
@@ -98,4 +98,3 @@ while (i < len)
 strings[n] = NULL;
 return (strings);
 }
-

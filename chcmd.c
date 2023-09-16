@@ -1,6 +1,6 @@
 #include "main.h"
- 
- void chcmd(char **av, char *actcmdd,char **env){
+
+ void chcmd(char **av, char *actcmdd,char **env,char *enterpath, int counter){
     char * command;
     unsigned int i;
 
@@ -21,8 +21,8 @@
     {
         exit (errno);
     }
-    else 
+    else
     {
-        cmdexc(av,actcmdd,env);
+        cmdexc(av,actcmdd,env,enterpath,counter);
     }}
  }

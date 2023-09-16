@@ -2,15 +2,16 @@
 
 int main(int ac, char **av, char **env)
 {
-        char *userinput, *Path_string, *cmd = ":) ",
-             **sarray = malloc(25 * sizeof(char *)), *end,
-             **Paths = malloc(30 * sizeof(char *)), *actualcommand;
-        int i = 0,  arraysize = 100, counter = 0, exitvalue = 0;
+        char *userinput, *Path_string, *cmd = ":) ", *end,
+             **Paths = malloc(30 * sizeof(char *)), *actualcommand,
+             *enterpath;
+        int i = 0,  arraysize = 100, counter = 1, exitvalue = 0,
+        waitstatus = 0;
         pid_t pid;
         bool piped = false;
         (void)ac;
 
-
+        enterpath = av[0];
         while (1 && !piped)
         {
             if(isatty(STDIN_FILENO) == 0)
@@ -18,15 +19,20 @@ int main(int ac, char **av, char **env)
              else{
                 write(STDOUT_FILENO, cmd, 3);}
                 userinput = userin();
-        if(strcmp(userinput, "$()^($)!$($)$!") != 0 
+        if(strcmp(userinput, "$()^($)!$($)$!") != 0
         && strcmp(userinput, " ") != 0){
         av = spilt(userinput," ",&arraysize);
         if(av[0] != NULL){
         echocheck(av);
         Path_string = getenv("PATH");
-        Path_Tokenizer(Path_string,Paths);
+       if(Path_string != NULL && Path_string != ""){
+        Path_Tokenizer(Path_string,Paths);}
+        else{
+            Path_string = malloc(15);
+            strcpy(Path_string, "/bin:/usr/bin");
+            Path_Tokenizer(Path_string,Paths);
+            free(Path_string);}
         av = commentche(av);
-        
         if(strcmp(av[0], "exit") == 0)
         {
             if(av[1] != NULL)
@@ -41,24 +47,26 @@ int main(int ac, char **av, char **env)
             exit (exitvalue);
             }
             else
-            exit (0);
+            exit (waitstatus);
         }
         else
         {
+        actualcommand = cmdchecker(Paths,av[0]);
+        if(actualcommand != NULL)
         pid = fork();
         if (pid == 0)
         {
-        actualcommand = cmdchecker(Paths,av[0]);
-        chcmd(av,actualcommand,env);
+        chcmd(av,actualcommand,env,enterpath,counter);
         }}
-        wait(NULL);
         
+        wait(&waitstatus);
+        waitstatus = WEXITSTATUS(waitstatus);
         counter++;
         }}}
         free_array(Paths, 30);
         free(userinput);
         free_array(av, arraysize);
-               
-        
+
+
         return (0);
 }

@@ -1,6 +1,6 @@
 #include "main.h"
 char **commentche(char **av){
-int i, comment_int, r;
+int i = 0, comment_int, r;
 bool comment = false;
 
 while (av[i] != NULL)
@@ -26,7 +26,8 @@ if(comment == true)
         r++;
     }
     return (av);}
-    
+
 }
 return (av);
 }
+

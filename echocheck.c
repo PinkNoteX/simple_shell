@@ -10,11 +10,13 @@ void echocheck(char **av)
         cmd = av[0];
     }
 
-if(strcmp(cmd, "echo") == 0 || strcmp(cmd, "/bin/echo") == 0)
+if(strcmp(cmd, "echo") == 0 ||
+ strcmp(cmd, "/bin/echo") == 0 ||
+ strcmp(cmd, "/usr/bin/echo") == 0)
 {
-    
+
 while (av[i] != NULL)
-{ 
+{
     while (av[i][r] != '\0')
     {
     if(av[i][r] == '"' || av[i][r] == '\'')

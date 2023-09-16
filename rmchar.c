@@ -4,20 +4,16 @@ void removeChar(char *str, char garbage1, char garbage2)
 {
     char *src, *dst;
     for (src = dst = str; *src != '\0'; src++) {
-        *dst = *src;
-        if (*dst != garbage1 && *dst != garbage2) dst++;
+        if (*src != garbage1 && *src != garbage2) {
+            *dst = *src;
+            dst++;
+        }
     }
     *dst = '\0';
 }
 void removefirstspace(char *str)
 {
-    char *src, *dst;
-    src = dst = str;
-    src++;
-    while (*src != '\0') {
-        *dst = *src;
-         dst++;
-         src++;
+    if (str[0] != '\0') {
+        strcpy(str, str + 1);
     }
-    *dst = '\0';
 }

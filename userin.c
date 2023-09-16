@@ -8,11 +8,11 @@ char *userin()
         nchars = getline(&userin_s, &n, stdin);
         if (nchars == -1)
         {
-                  if (feof(stdin)) 
+                  if (feof(stdin))
         {
                 if(isatty(STDIN_FILENO) == 0){
                 free(userin_s);
-                exit (0);    
+                exit (0);
                 }
             clearerr(stdin);
             write(STDOUT_FILENO,"\n",1);
@@ -21,7 +21,7 @@ char *userin()
         else{
                 if(isatty(STDIN_FILENO) == 0){
                 free(userin_s);
-                exit (0);    
+                exit (0);
                 }
                 free(userin_s);
                 write(STDOUT_FILENO,"\n",1);

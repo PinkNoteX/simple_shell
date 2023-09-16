@@ -1,11 +1,12 @@
 #include "main.h"
 
-void cmdexc(char **av, char *actcmdd, char ** env)
+void cmdexc(char **av, char *actcmdd, char ** env, char *enterpath, int counter)
 {
     char *cmdd = NULL, buffer[32], PATH[32] = "/bin/";
     int i, x;
-    
-    
+    char buf[80];                            
+    int LengthUsed = sprintf(buf, "%d", counter);  
+
     if(av){
         cmdd = av[0];
         x = strlen(cmdd) + 1;}
@@ -21,7 +22,13 @@ void cmdexc(char **av, char *actcmdd, char ** env)
     if(buffer[0] != '\0'){
     if (execve(PATH, av, env) == -1)
     {
-     perror(":( Error");
-     exit (errno);
+    write(STDERR_FILENO, enterpath, strlen(enterpath));
+    write(STDERR_FILENO, ": ", 2);
+    write(STDERR_FILENO, buf, LengthUsed);
+    write(STDERR_FILENO, ": ", 2);
+    write(STDERR_FILENO, actcmdd, strlen(actcmdd));
+    write(STDERR_FILENO, ": ", 2);
+    write(STDERR_FILENO, "not found\n", 10);
+    exit (errno);
     }}
 }
