@@ -9,7 +9,7 @@ char *cmdchecker(char **array, char *cmd)
 
 
 	strcpy(cmdarray, cmd);
-	for( i = 0; array[i] != NULL; i++)
+	for (i = 0; array[i] != NULL; i++)
 {
 		if (cmdarray[0] != '/')
 {
