@@ -17,6 +17,7 @@ ep = av[0];
 while (1)
 {
 pipe(pipefd);
+
 if (isatty(STDIN_FILENO) != 0)
 write(STDOUT_FILENO, cmd, 3);
 in = userin(exitval, in, Paths, av);
@@ -45,7 +46,7 @@ if (pid == 0)
 chcmd(av, act, env, ep, counter, pipefd); }
 wait(&ws);
 ws = WEXITSTATUS(ws);
-exitval = piped(pipefd, ws);
+exitval = piped(pipefd, ws, av);
 counter++; }}
 free_helper(in, Paths, av);
 return (exitval); }

@@ -5,14 +5,13 @@
  * @waitstatus: the status of the wait
  * Return: exitval
  */
-int piped(int pipefd[], int waitstatus)
+int piped(int pipefd[], int waitstatus, char **av)
 {
 int exitval = 0;
 close(pipefd[1]);
 read(pipefd[0], &exitval, sizeof(int));
 close(pipefd[0]);
-
-if (waitstatus == 2)
+if (waitstatus == 2 && av[0] != 0)
 exitval = waitstatus;
 return (exitval);
 }

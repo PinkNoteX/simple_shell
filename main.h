@@ -62,9 +62,8 @@ void removefirstspace(char *str);
 void exithandler(char **av, int exitval, char *enterpath, int exitbool,
 int counter, char **Paths, char *userinput);
 
-int piped(int pipefd[], int waitstatus);
+int piped(int pipefd[], int waitstatus, char **av);
 
 void free_helper(char *userinput, char **Paths, char **av);
 
 #endif
-

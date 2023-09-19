@@ -21,11 +21,11 @@ if (feof(stdin))
 if (isatty(STDIN_FILENO) == 0)
 {
 free(userin_s);
-free_helper(userinput, Paths, av);
+
 exit(exitval); }
 clearerr(stdin);
 write(STDOUT_FILENO, "\n", 1);
-free_helper(userinput, Paths, av);
+
 exit(exitval); }
 else
 {
@@ -35,7 +35,7 @@ free(userin_s);
 exit(exitval); }
 free(userin_s);
 write(STDOUT_FILENO, "\n", 1);
-free_helper(userinput, Paths, av);
+
 exit(exitval); }}
 if ((userin_s)[nchars - 1] == '\n')
 {
