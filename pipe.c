@@ -7,7 +7,7 @@
  */
 int piped(int pipefd[], int waitstatus)
 {
-int exitval;
+int exitval = 0;
 close(pipefd[1]);
 read(pipefd[0], &exitval, sizeof(int));
 close(pipefd[0]);
