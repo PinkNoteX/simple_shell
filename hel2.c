@@ -12,8 +12,7 @@ int i = 0;
 for (i = 0; i < arraysize; i++)
 {
 free(array[i]); }
-free(array); }
-
+}
 
 /**
  * _strchr - does the same task as the strchr function.
@@ -62,4 +61,3 @@ if (s1[i] == '\0' && s2[i] == '\0')
 {
 return (0); }}
 return (0); }
-

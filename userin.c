@@ -6,9 +6,10 @@
  * @Paths: for free on exit
  * Return: userinput
  */
-char *userin(int exitval, char **Paths)
+char *userin(int exitval, char *userinput, char **Paths,
+char **av, char __attribute__((unused)) *actcmd, int az)
 {
-char *userin_s;
+char *userin_s = NULL;
 size_t n = 0;
 ssize_t nchars;
 nchars = getline(&userin_s, &n, stdin);
@@ -19,22 +20,23 @@ if (feof(stdin))
 if (isatty(STDIN_FILENO) == 0)
 {
 free(userin_s);
-free_array(Paths, 30);
+free_helperexc(userinput, Paths, av, actcmd, az);
 exit(exitval); }
 clearerr(stdin);
+free(userin_s);
 write(STDOUT_FILENO, "\n", 1);
-free_array(Paths, 30);
+free_helperexc(userinput, Paths, av, actcmd, az);
 exit(exitval); }
 else
 {
 if (isatty(STDIN_FILENO) == 0)
 {
 free(userin_s);
-free_array(Paths, 30);
+free_helperexc(userinput, Paths, av, actcmd, az);
 exit(exitval); }
 free(userin_s);
 write(STDOUT_FILENO, "\n", 1);
-free_array(Paths, 30);
+free_helperexc(userinput, Paths, av, actcmd, az);
 exit(exitval); }}
 if ((userin_s)[nchars - 1] == '\n')
 {
@@ -45,4 +47,5 @@ if (nchars == 0)
 _strcpy(userin_s, " ");
 return (userin_s); }
 else
-return (userin_s); }
+{
+return (userin_s); }}
