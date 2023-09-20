@@ -11,8 +11,10 @@ char *cmdchecker(char **array, char *cmd, int *exitstatus)
 int i;
 struct stat buf;
 char cmdarray[10000], arraystore[10000];
-char *actualcmd = malloc(100 * sizeof(char));
+char *actualcmd;
 _strcpy(cmdarray, cmd);
+
+actualcmd = malloc(100 * sizeof(char));
 for (i = 0; array[i] != NULL; i++)
 {
 if (cmdarray[0] != '/')

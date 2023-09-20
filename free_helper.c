@@ -17,3 +17,10 @@ free(actcmd);
 free(userinput);
 free_array(av, az);
 }
+void free_helperexc(char *userinput, char **Paths, char **av, char *actcmd, int az)
+{
+free_arrayex(Paths, 30);
+free(actcmd);
+free(userinput);
+free_arrayex(av, az);
+}

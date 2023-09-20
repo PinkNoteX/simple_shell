@@ -12,8 +12,7 @@ int i = 0;
 for (i = 0; i < arraysize; i++)
 {
 free(array[i]); }
-free(array); }
-
+}
 
 /**
  * _strchr - does the same task as the strchr function.

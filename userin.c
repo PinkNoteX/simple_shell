@@ -20,23 +20,23 @@ if (feof(stdin))
 if (isatty(STDIN_FILENO) == 0)
 {
 free(userin_s);
-free_helper(userinput, Paths, av, actcmd, az);
+free_helperexc(userinput, Paths, av, actcmd, az);
 exit(exitval); }
 clearerr(stdin);
 free(userin_s);
 write(STDOUT_FILENO, "\n", 1);
-free_helper(userinput, Paths, av, actcmd, az);
+free_helperexc(userinput, Paths, av, actcmd, az);
 exit(exitval); }
 else
 {
 if (isatty(STDIN_FILENO) == 0)
 {
 free(userin_s);
-free_helper(userinput, Paths, av, actcmd, az);
+free_helperexc(userinput, Paths, av, actcmd, az);
 exit(exitval); }
 free(userin_s);
 write(STDOUT_FILENO, "\n", 1);
-free_helper(userinput, Paths, av, actcmd, az);
+free_helperexc(userinput, Paths, av, actcmd, az);
 exit(exitval); }}
 if ((userin_s)[nchars - 1] == '\n')
 {
