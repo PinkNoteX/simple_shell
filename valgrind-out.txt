@@ -1,0 +1,217 @@
+==32621== Memcheck, a memory error detector
+==32621== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==32621== Using Valgrind-3.15.0-608cb11914-20190413 and LibVEX; rerun with -h for copyright info
+==32621== Command: ./hsh
+==32621== Parent PID: 31094
+==32621== 
+--32621-- 
+--32621-- Valgrind options:
+--32621--    --leak-check=full
+--32621--    --show-leak-kinds=all
+--32621--    --track-origins=yes
+--32621--    --verbose
+--32621--    --log-file=valgrind-out.txt
+--32621-- Contents of /proc/version:
+--32621--   Linux version 5.3.0-1032-aws (buildd@lgw01-amd64-026) (gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)) #34~18.04.2-Ubuntu SMP Fri Jul 24 10:06:28 UTC 2020
+--32621-- 
+--32621-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand
+--32621-- Page sizes: currently 4096, max supported 4096
+--32621-- Valgrind library directory: /usr/lib/x86_64-linux-gnu/valgrind
+--32621-- Reading syms from /simple_shell/hsh
+--32621-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-2.31.so
+--32621--   Considering /usr/lib/x86_64-linux-gnu/ld-2.31.so ..
+--32621--   .. CRC mismatch (computed 0306b78c wanted 8d362b37)
+--32621--   Considering /lib/x86_64-linux-gnu/ld-2.31.so ..
+--32621--   .. CRC mismatch (computed 0306b78c wanted 8d362b37)
+--32621--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.31.so ..
+--32621--   .. CRC is valid
+--32621-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/memcheck-amd64-linux
+--32621--    object doesn't have a symbol table
+--32621--    object doesn't have a dynamic symbol table
+--32621-- Scheduler: using generic scheduler lock implementation.
+--32621-- Reading suppressions file: /usr/lib/x86_64-linux-gnu/valgrind/default.supp
+==32621== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-32621-by-???-on-767ae2565141
+==32621== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-32621-by-???-on-767ae2565141
+==32621== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-32621-by-???-on-767ae2565141
+==32621== 
+==32621== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==32621== don't want to do, unless you know exactly what you're doing,
+==32621== or are doing some strange experiment):
+==32621==   /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=32621 ...command...
+==32621== 
+==32621== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==32621==   /path/to/gdb ./hsh
+==32621== and then give GDB the following command
+==32621==   target remote | /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=32621
+==32621== --pid is optional if only one valgrind process is running
+==32621== 
+--32621-- REDIR: 0x4022e10 (ld-linux-x86-64.so.2:strlen) redirected to 0x580c9ce2 (???)
+--32621-- REDIR: 0x4022be0 (ld-linux-x86-64.so.2:index) redirected to 0x580c9cfc (???)
+--32621-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_core-amd64-linux.so
+--32621--    object doesn't have a symbol table
+--32621-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so
+--32621--    object doesn't have a symbol table
+==32621== WARNING: new redirection conflicts with existing -- ignoring it
+--32621--     old: 0x04022e10 (strlen              ) R-> (0000.0) 0x580c9ce2 ???
+--32621--     new: 0x04022e10 (strlen              ) R-> (2007.0) 0x0483f060 strlen
+--32621-- REDIR: 0x401f5f0 (ld-linux-x86-64.so.2:strcmp) redirected to 0x483ffd0 (strcmp)
+--32621-- REDIR: 0x4023370 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4843a20 (mempcpy)
+--32621-- Reading syms from /usr/lib/x86_64-linux-gnu/libc-2.31.so
+--32621--   Considering /usr/lib/x86_64-linux-gnu/libc-2.31.so ..
+--32621--   .. CRC mismatch (computed ef41b1a0 wanted f854b801)
+--32621--   Considering /lib/x86_64-linux-gnu/libc-2.31.so ..
+--32621--   .. CRC mismatch (computed ef41b1a0 wanted f854b801)
+--32621--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.31.so ..
+--32621--   .. CRC is valid
+--32621-- REDIR: 0x48f44b0 (libc.so.6:memmove) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f37b0 (libc.so.6:strncpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f47e0 (libc.so.6:strcasecmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f30d0 (libc.so.6:strcat) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f3810 (libc.so.6:rindex) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f5c80 (libc.so.6:rawmemchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x4910d10 (libc.so.6:wmemchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x4910850 (libc.so.6:wcscmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f4610 (libc.so.6:mempcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f4440 (libc.so.6:bcmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f3740 (libc.so.6:strncmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f3180 (libc.so.6:strcmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f4570 (libc.so.6:memset) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x4910810 (libc.so.6:wcschr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f36a0 (libc.so.6:strnlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f3260 (libc.so.6:strcspn) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f4830 (libc.so.6:strncasecmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f3200 (libc.so.6:strcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f4980 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x4911f80 (libc.so.6:wcsnlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x4910890 (libc.so.6:wcscpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f3850 (libc.so.6:strpbrk) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f3130 (libc.so.6:index) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f3660 (libc.so.6:strlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48fcbd0 (libc.so.6:memrchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f4880 (libc.so.6:strcasecmp_l) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f4400 (libc.so.6:memchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x4910960 (libc.so.6:wcslen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f3b10 (libc.so.6:strspn) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f4780 (libc.so.6:stpncpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f4720 (libc.so.6:stpcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f5cc0 (libc.so.6:strchrnul) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x48f48d0 (libc.so.6:strncasecmp_l) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--32621-- REDIR: 0x49dc410 (libc.so.6:__strrchr_avx2) redirected to 0x483ea10 (rindex)
+--32621-- REDIR: 0x48ee110 (libc.so.6:malloc) redirected to 0x483b780 (malloc)
+==32621== Conditional jump or move depends on uninitialised value(s)
+==32621==    at 0x48D7551: getdelim (iogetdelim.c:59)
+==32621==    by 0x10ABBE: userin (in /simple_shell/hsh)
+==32621==    by 0x10A27E: main (in /simple_shell/hsh)
+==32621==  Uninitialised value was created by a stack allocation
+==32621==    at 0x10AB7B: userin (in /simple_shell/hsh)
+==32621== 
+--32621-- REDIR: 0x49d8440 (libc.so.6:__memchr_avx2) redirected to 0x4840050 (memchr)
+--32621-- REDIR: 0x49df5f0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x48429f0 (memmove)
+--32621-- REDIR: 0x49d7ae0 (libc.so.6:__strcmp_avx2) redirected to 0x483fed0 (strcmp)
+--32621-- REDIR: 0x49dfa70 (libc.so.6:__memset_avx2_unaligned_erms) redirected to 0x48428e0 (memset)
+==32621== Invalid write of size 1
+==32621==    at 0x109FC3: _strcat (in /simple_shell/hsh)
+==32621==    by 0x10A7C5: Path_Tokenizer (in /simple_shell/hsh)
+==32621==    by 0x10A32C: main (in /simple_shell/hsh)
+==32621==  Address 0x4a49c15 is 0 bytes after a block of size 5 alloc'd
+==32621==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==32621==    by 0x10A718: Path_Tokenizer (in /simple_shell/hsh)
+==32621==    by 0x10A32C: main (in /simple_shell/hsh)
+==32621== 
+--32622-- REDIR: 0x49dc220 (libc.so.6:__strchrnul_avx2) redirected to 0x4843540 (strchrnul)
+--32623-- REDIR: 0x49dc220 (libc.so.6:__strchrnul_avx2) redirected to 0x4843540 (strchrnul)
+--32621-- REDIR: 0x48ee700 (libc.so.6:free) redirected to 0x483c9d0 (free)
+==32621== 
+==32621== HEAP SUMMARY:
+==32621==     in use at exit: 2,241 bytes in 17 blocks
+==32621==   total heap usage: 25 allocs, 8 frees, 3,571 bytes allocated
+==32621== 
+==32621== Searching for pointers to 17 not-freed blocks
+==32621== Checked 68,640 bytes
+==32621== 
+==32621== 3 bytes in 1 blocks are still reachable in loss record 1 of 11
+==32621==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==32621==    by 0x10AA55: split (in /simple_shell/hsh)
+==32621==    by 0x10A2B0: main (in /simple_shell/hsh)
+==32621== 
+==32621== 4 bytes in 2 blocks are definitely lost in loss record 2 of 11
+==32621==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==32621==    by 0x10A8CC: split (in /simple_shell/hsh)
+==32621==    by 0x10A2B0: main (in /simple_shell/hsh)
+==32621== 
+==32621== 5 bytes in 1 blocks are definitely lost in loss record 3 of 11
+==32621==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==32621==    by 0x10A718: Path_Tokenizer (in /simple_shell/hsh)
+==32621==    by 0x10A32C: main (in /simple_shell/hsh)
+==32621== 
+==32621== 8 bytes in 1 blocks are indirectly lost in loss record 4 of 11
+==32621==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==32621==    by 0x10AA55: split (in /simple_shell/hsh)
+==32621==    by 0x10A2B0: main (in /simple_shell/hsh)
+==32621== 
+==32621== 61 bytes in 5 blocks are definitely lost in loss record 5 of 11
+==32621==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==32621==    by 0x10A63A: Path_Tokenizer (in /simple_shell/hsh)
+==32621==    by 0x10A32C: main (in /simple_shell/hsh)
+==32621== 
+==32621== 100 bytes in 1 blocks are still reachable in loss record 6 of 11
+==32621==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==32621==    by 0x10955B: cmdchecker (in /simple_shell/hsh)
+==32621==    by 0x10A3B3: main (in /simple_shell/hsh)
+==32621== 
+==32621== 100 bytes in 1 blocks are definitely lost in loss record 7 of 11
+==32621==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==32621==    by 0x10955B: cmdchecker (in /simple_shell/hsh)
+==32621==    by 0x10A3B3: main (in /simple_shell/hsh)
+==32621== 
+==32621== 120 bytes in 1 blocks are definitely lost in loss record 8 of 11
+==32621==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==32621==    by 0x48D7573: getdelim (iogetdelim.c:62)
+==32621==    by 0x10ABBE: userin (in /simple_shell/hsh)
+==32621==    by 0x10A27E: main (in /simple_shell/hsh)
+==32621== 
+==32621== 240 bytes in 2 blocks are still reachable in loss record 9 of 11
+==32621==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==32621==    by 0x48D7573: getdelim (iogetdelim.c:62)
+==32621==    by 0x10ABBE: userin (in /simple_shell/hsh)
+==32621==    by 0x10A27E: main (in /simple_shell/hsh)
+==32621== 
+==32621== 800 bytes in 1 blocks are still reachable in loss record 10 of 11
+==32621==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==32621==    by 0x10A8DD: split (in /simple_shell/hsh)
+==32621==    by 0x10A2B0: main (in /simple_shell/hsh)
+==32621== 
+==32621== 808 (800 direct, 8 indirect) bytes in 1 blocks are definitely lost in loss record 11 of 11
+==32621==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==32621==    by 0x10A8DD: split (in /simple_shell/hsh)
+==32621==    by 0x10A2B0: main (in /simple_shell/hsh)
+==32621== 
+==32621== LEAK SUMMARY:
+==32621==    definitely lost: 1,090 bytes in 11 blocks
+==32621==    indirectly lost: 8 bytes in 1 blocks
+==32621==      possibly lost: 0 bytes in 0 blocks
+==32621==    still reachable: 1,143 bytes in 5 blocks
+==32621==         suppressed: 0 bytes in 0 blocks
+==32621== 
+==32621== ERROR SUMMARY: 11 errors from 8 contexts (suppressed: 0 from 0)
+==32621== 
+==32621== 2 errors in context 1 of 8:
+==32621== Invalid write of size 1
+==32621==    at 0x109FC3: _strcat (in /simple_shell/hsh)
+==32621==    by 0x10A7C5: Path_Tokenizer (in /simple_shell/hsh)
+==32621==    by 0x10A32C: main (in /simple_shell/hsh)
+==32621==  Address 0x4a49c15 is 0 bytes after a block of size 5 alloc'd
+==32621==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==32621==    by 0x10A718: Path_Tokenizer (in /simple_shell/hsh)
+==32621==    by 0x10A32C: main (in /simple_shell/hsh)
+==32621== 
+==32621== 
+==32621== 3 errors in context 2 of 8:
+==32621== Conditional jump or move depends on uninitialised value(s)
+==32621==    at 0x48D7551: getdelim (iogetdelim.c:59)
+==32621==    by 0x10ABBE: userin (in /simple_shell/hsh)
+==32621==    by 0x10A27E: main (in /simple_shell/hsh)
+==32621==  Uninitialised value was created by a stack allocation
+==32621==    at 0x10AB7B: userin (in /simple_shell/hsh)
+==32621== 
+==32621== ERROR SUMMARY: 11 errors from 8 contexts (suppressed: 0 from 0)
