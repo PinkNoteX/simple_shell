@@ -14,7 +14,7 @@
  * Return: exitval
  */
 int exithandler(char **av, int exitval, char *enterpath, int exitbool,
-int counter, char **Paths, int az)
+int counter, char **Paths, int az, char *actcmd, char *userinput)
 {
 int exitvalue = 0;
 char buf[80], *end;
@@ -39,10 +39,10 @@ exitval = 2;
 exitbool = 0; }
 else
 {
-free_helperexc(Paths, av, az);
+free_helperexc(Paths, av, az, actcmd, userinput);
 exit(exitvalue); }}
 if (exitbool == 1)
 {
-free_helperexc(Paths, av, az);
+free_helperexc(Paths, av, az, actcmd, userinput);
 exit(exitval); }
 return (exitval); }

@@ -39,7 +39,7 @@ void *_memset(void *ptr, int value, size_t num);
 void free_array(char **array, int arraysize);
 
 char *userin(int exitval, char **Paths,
-char **av, int az);
+char **av, int az, char *actcmd, char *userinput);
 
 void cmdexc(char **av, char *actcmdd, char **env,
 char *enterpath, int counter, int exitpipe[2]);
@@ -63,14 +63,14 @@ void removefirstspace(char *str);
 
 
 int exithandler(char **av, int exitval, char *enterpath, int exitbool,
-int counter, char **Paths, int az);
+int counter, char **Paths, int az, char *actcmd, char *userinput);
 
 int piped(int pipefd[], int waitstatus, char **av, int exitval);
 
 void free_helper(char *userinput, char **Paths, char **av,
 char *actcmd, int az, int counter);
 
-void free_helperexc(char **Paths, char **av, int az);
-
+void free_helperexc(char **Paths, char **av,
+int az, char *actcmd, char *userinput);
 void free_arrayex(char **array, int arraysize);
 #endif

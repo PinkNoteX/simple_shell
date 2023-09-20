@@ -17,7 +17,7 @@ while (1)
 pipe(pipefd);
 if (isatty(STDIN_FILENO) != 0)
 write(STDOUT_FILENO, cmd, 3);
-in = userin(exitval, Ps, av, az);
+in = userin(exitval, Ps, av, az, act, in);
 if (_strcmp(in, " ") != 0)
 {
 av = split(in, " ", &az);
@@ -35,7 +35,7 @@ av = commentche(av);
 if (av[0] != NULL)
 {
 if (_strcmp(av[0], "exit") == 0)
-exitval = exithandler(av, exitval, ep, exitbool, counter, Ps, az);
+exitval = exithandler(av, exitval, ep, exitbool, counter, Ps, az, act, in);
 else
 {
 act = cmdchecker(Ps, av[0], &exitval);

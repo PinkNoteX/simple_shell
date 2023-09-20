@@ -10,7 +10,8 @@
  * @az: arraysize
  * Return: userinput
  */
-char *userin(int exitval, char **Paths, char **av, int az)
+char *userin(int exitval, char **Paths, char **av, int az,
+char *actcmd, char *userinput)
 {
 char *userin_s = NULL;
 size_t n = 0;
@@ -23,23 +24,23 @@ if (feof(stdin))
 if (isatty(STDIN_FILENO) == 0)
 {
 free(userin_s);
-free_helperexc(Paths, av, az);
+free_helperexc(Paths, av, az, actcmd, userinput);
 exit(exitval); }
 clearerr(stdin);
 free(userin_s);
 write(STDOUT_FILENO, "\n", 1);
-free_helperexc(Paths, av, az);
+free_helperexc(Paths, av, az, actcmd, userinput);
 exit(exitval); }
 else
 {
 if (isatty(STDIN_FILENO) == 0)
 {
 free(userin_s);
-free_helperexc(Paths, av, az);
+free_helperexc(Paths, av, az, actcmd, userinput);
 exit(exitval); }
 free(userin_s);
 write(STDOUT_FILENO, "\n", 1);
-free_helperexc(Paths, av, az);
+free_helperexc(Paths, av, az, actcmd, userinput);
 exit(exitval); }}
 if ((userin_s)[nchars - 1] == '\n')
 {
