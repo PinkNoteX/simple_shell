@@ -10,7 +10,7 @@
  * @userinput: userinput
  * Return: void
  */
-void exithandler(char **av, int exitval, char *enterpath, int exitbool,
+int exithandler(char **av, int exitval, char *enterpath, int exitbool,
 int counter, char **Paths, char *userinput)
 {
 int exitvalue = 0;
@@ -45,4 +45,5 @@ if (exitbool == 1)
 free_array(Paths, 30);
 free(userinput);
 free_array(av, 100);
-exit(exitval); }}
+exit(exitval); }
+return (exitval); }

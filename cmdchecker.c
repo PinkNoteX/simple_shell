@@ -12,7 +12,6 @@ int i;
 struct stat buf;
 char cmdarray[10000], arraystore[10000];
 char *actualcmd = malloc(100 * sizeof(char));
-
 _strcpy(cmdarray, cmd);
 for (i = 0; array[i] != NULL; i++)
 {

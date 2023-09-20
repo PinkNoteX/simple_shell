@@ -67,3 +67,5 @@ if (_strncmp(name, *env, name_len) == 0 && (*env)[name_len] == '=')
 {
 return (&(*env)[name_len + 1]); }}
 return (NULL); }
+
+

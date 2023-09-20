@@ -8,12 +8,13 @@ void echocheck(char **av)
 {
 int i = 1, r = 0;
 char *cmd;
-
-if (av)
+if (av[0] != NULL)
 cmd = av[0];
-if (_strcmp(cmd, "echo") == 0 ||
-_strcmp(cmd, "/bin/echo") == 0 ||
-_strcmp(cmd, "/usr/bin/echo") == 0)
+else
+cmd =  "Not";
+if (strcmp(cmd, "echo") == 0 ||
+strcmp(cmd, "/bin/echo") == 0 ||
+strcmp(cmd, "/usr/bin/echo") == 0)
 {
 while (av[i] != NULL)
 {

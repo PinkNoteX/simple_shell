@@ -3,12 +3,10 @@
 /**
  * userin - Gets user input.
  * @exitval: exit value to exit the program with.
- * @userinput: for free on exit
  * @Paths: for free on exit
- * @av: for free on exit
  * Return: userinput
  */
-char *userin(int exitval, char *userinput, char **Paths, char **av)
+char *userin(int exitval, char **Paths)
 {
 char *userin_s;
 size_t n = 0;
@@ -21,21 +19,22 @@ if (feof(stdin))
 if (isatty(STDIN_FILENO) == 0)
 {
 free(userin_s);
-
+free_array(Paths, 30);
 exit(exitval); }
 clearerr(stdin);
 write(STDOUT_FILENO, "\n", 1);
-
+free_array(Paths, 30);
 exit(exitval); }
 else
 {
 if (isatty(STDIN_FILENO) == 0)
 {
 free(userin_s);
+free_array(Paths, 30);
 exit(exitval); }
 free(userin_s);
 write(STDOUT_FILENO, "\n", 1);
-
+free_array(Paths, 30);
 exit(exitval); }}
 if ((userin_s)[nchars - 1] == '\n')
 {

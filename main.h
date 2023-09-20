@@ -36,7 +36,7 @@ char *_strchr(const char *str, int c);
 
 void free_array(char **array, int arraysize);
 
-char *userin(int exitval, char *userinput, char **Paths, char **av);
+char *userin(int exitval, char **Paths);
 
 void cmdexc(char **av, char *actcmdd, char **env,
 char *enterpath, int counter, int exitpipe[2]);
@@ -59,10 +59,10 @@ char **split(char *string, char *sep, int *sep_count);
 void removefirstspace(char *str);
 
 
-void exithandler(char **av, int exitval, char *enterpath, int exitbool,
+int exithandler(char **av, int exitval, char *enterpath, int exitbool,
 int counter, char **Paths, char *userinput);
 
-int piped(int pipefd[], int waitstatus, char **av);
+int piped(int pipefd[], int waitstatus, char **av, int exitval);
 
 void free_helper(char *userinput, char **Paths, char **av);
 
