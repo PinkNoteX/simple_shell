@@ -9,7 +9,7 @@
  */
 int main(int __attribute__((unused)) ac, char **av, char **env)
 {
-char *in, *P, *cmd = ":) ", **Ps = malloc(30 * sizeof(char *)), *act, *ep;
+char *in, *P, *cmd = "$ ", **Ps = malloc(30 * sizeof(char *)), *act, *ep;
 int az = 0, counter = 1, exitval = 0, ws = 0, pipefd[2], exitbool = 0, pid;
 ep = av[0];
 while (1)
