@@ -12,7 +12,7 @@
 void free_helper(char *userinput, char **Paths, char **av,
 char *actcmd, int az, int counter)
 {
-if (counter = 2)
+if (counter == 2)
 {
 free_array(Paths, 30);
 if (actcmd != NULL && _strcmp(actcmd, userinput) != 0)
@@ -26,15 +26,12 @@ free_array(av, az);
 }}
 /**
  * free_helperexc - frees inputs
- * @userinput: userinput
  * @Paths: paths array.
  * @av: args array.
- * @actcmd: actual command.
  *  @az: arraysize
  * Return: void
  */
-void free_helperexc(char *userinput, char **Paths,
-char **av, char *actcmd, int az)
+void free_helperexc(char **Paths, char **av, int az)
 {
 free_arrayex(Paths, 30);
 free_arrayex(av, az);
