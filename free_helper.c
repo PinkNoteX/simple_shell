@@ -12,7 +12,7 @@
 void free_helper(char *userinput, char **Paths, char **av,
 char *actcmd, int az, int counter)
 {
-if (counter > 2)
+if (counter = 2)
 {
 free_array(Paths, 30);
 if (actcmd != NULL && _strcmp(actcmd, userinput) != 0)
@@ -37,9 +37,5 @@ void free_helperexc(char *userinput, char **Paths,
 char **av, char *actcmd, int az)
 {
 free_arrayex(Paths, 30);
-free(actcmd);
-actcmd = NULL;
-free(userinput);
-userinput = NULL;
 free_arrayex(av, az);
 }
