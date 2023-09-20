@@ -9,14 +9,14 @@
  */
 int main(int __attribute__((unused)) ac, char **av, char **env)
 {
-char *in, *P, *cmd = ":) ", **Paths = malloc(30 * sizeof(char *)), *act, *ep;
+char *in, *P, *cmd = "$ ", **Paths = malloc(30 * sizeof(char *)), *act, *ep;
 int az = 100, counter = 1, exitval = 0, ws = 0, pipefd[2], exitbool = 0, pid;
 ep = av[0];
 while (1)
 {
 pipe(pipefd);
 if (isatty(STDIN_FILENO) != 0)
-write(STDOUT_FILENO, cmd, 3);
+write(STDOUT_FILENO, cmd, 2);
 in = userin(exitval, Paths);
 if (_strcmp(in, " ") != 0)
 {
