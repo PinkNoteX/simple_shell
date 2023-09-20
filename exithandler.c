@@ -8,7 +8,10 @@
  * @counter: number of loops the program went through
  * @Paths: paths array.
  * @userinput: userinput
- * Return: void
+ * @az: arraysize.
+ * @actcmd: actual command
+ * @counter: counter
+ * Return: exitval
  */
 int exithandler(char **av, int exitval, char *enterpath, int exitbool,
 int counter, char **Paths, char *userinput, char *actcmd, int az)
@@ -36,10 +39,10 @@ exitval = 2;
 exitbool = 0; }
 else
 {
-free_helper(userinput, Paths, av, actcmd, az);
+free_helperexc(userinput, Paths, av, actcmd, az);
 exit(exitvalue); }}
 if (exitbool == 1)
 {
-free_helper(userinput, Paths, av, actcmd, az);
+free_helperexc(userinput, Paths, av, actcmd, az);
 exit(exitval); }
 return (exitval); }

@@ -47,6 +47,5 @@ wait(&ws);
 ws = WEXITSTATUS(ws);
 exitval = piped(pipefd, ws, av, exitval);
 counter++;
-if(counter > 2)
-free_helper(in, Ps, av, act, az); }}}
+free_helper(in, Ps, av, act, az, counter); }}}
 return (exitval); }

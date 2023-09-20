@@ -4,6 +4,10 @@
  * userin - Gets user input.
  * @exitval: exit value to exit the program with.
  * @Paths: for free on exit
+ * @av: args.
+ * @userinput: input.
+ * @actcmd: actcommand.
+ * @az: arraysize
  * Return: userinput
  */
 char *userin(int exitval, char *userinput, char **Paths,

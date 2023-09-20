@@ -67,9 +67,11 @@ int counter, char **Paths, char *userinput, char *actcmd, int az);
 
 int piped(int pipefd[], int waitstatus, char **av, int exitval);
 
-void free_helper(char *userinput, char **Paths, char **av, char *actcmd, int az);
+void free_helper(char *userinput, char **Paths, char **av,
+char *actcmd, int az, int counter);
 
-void free_helperexc(char *userinput, char **Paths, char **av, char *actcmd, int az);
+void free_helperexc(char *userinput, char **Paths, char **av,
+char *actcmd, int az);
 
 void free_arrayex(char **array, int arraysize);
 #endif
